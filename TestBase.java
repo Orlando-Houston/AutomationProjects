@@ -1,27 +1,34 @@
-package WebOrderCommonDrive.Common;
+package Common;
 
-import WebOrderCommonDrive.Common.Base;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
-public class TestBase extends Base {
+@Test
+public abstract class TestBase extends Base {
     @BeforeSuite
-    public void BeforeSuit(){
+    public void beforeSuit()
+    {
         Driver.setUpDriver ();
+    }
+    @BeforeClass
+    public void beforeClass(){
 
     }
+
     @BeforeMethod
     public void beforeMethod(){
         Driver.getDriver ();
 
     }
-    @AfterMethod
+
     public void afterMethod(){
         Driver.closeDriver ();
 
     }
+    @AfterClass
+    public void afterClass(){
+
+    }
+
     @AfterSuite
     public void afterSuit(){
 

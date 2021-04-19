@@ -1,7 +1,8 @@
-package WebOrderCommonDrive.Common;
+package Common;
 
-import WebOrderCommonDrive.Util.SeleniumUtil;
+import SeleniumUtil.SeleniumUtil;
 
 public abstract class Base {
     protected SeleniumUtil seleniumUtil=new SeleniumUtil ();
+
 }

@@ -1,10 +1,6 @@
-package WebOrderCommonDrive.Common;
+package Common;
 
-import WebOrderCommonDrive.Common.Base;
-
-public abstract class PageBase extends Base {
-    public abstract void waitForPageToLoad();
-
-    }
-
-
+public abstract class PageBase extends Base
+{
+public abstract void waitForPageLoad();
+}
