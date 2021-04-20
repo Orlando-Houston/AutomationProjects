@@ -1,25 +1,57 @@
-package Common.Page;
+package PageObjects;
 
-import Common.Driver;
+import CompleteSelPro.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import java.util.List;
 
-public class HomePage {
-    private By stockLocator = By.id("stockNumber");
+public class HomePage extends Base {
+    public By search = By.xpath ("//input[@type='search']");
 
-    public int getNumberOfCarsOnPage() {
-        List<WebElement> stockElementList = Driver.getDriver().findElements(stockLocator);
-        int count = stockElementList.size();
-        return count;
+    public WebElement getSearch() {
+        return driver.findElement (search);
+
     }
 
-    public void goToPage() {
-        Driver.getDriver().get("http://dealerlot.tk/");
+    public By productName = By.cssSelector ("h4. product-name");
+
+    public WebElement getProductName() {
+        return driver.findElement (productName);
+
     }
-   // public void deleteCar(int stockNumber) {
-     //   By deleteButton = By.xpath("//a[@href='/delete/" + stockNumber + "']");
-      //  Driver.getDriver().findElement(deleteButton).click();
+
+    @FindBy(xpath = "//button[contains(text(),'ADD TO CART')]")
+    WebElement addToCart;
+
+    public void addToCart() {
+
+        addToCart.click ();
     }
+
+
+    @FindBy(how = How.CSS, using = "a.increment")
+    WebElement increment;
+
+    public void increment() {
+
+        increment.click ();
+    }
+
+    public List<WebElement>selects;
+    public List<WebElement> getSelects() {
+       selects=driver.findElements (By.cssSelector ("h4.product-name")) ;
+       return selects;
+    }
+
+    public List<WebElement>addCarts;
+   public  List<WebElement>addCartLists(){
+        addCarts=driver.findElements (By.xpath ("//div[@class='product-action']/button"));
+        return addCarts;
+    }
+
+
+}
 
