@@ -1,28 +1,44 @@
-package WebOrderTests;
+package LoginTest;
 
-import WebOrderCommonDrive.Common.Driver;
-import WebOrderCommonDrive.Common.TestBase;
-import WebOrdersPage.Login.LoginPage;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import WebOrdersPage.DashBoard.DashBoardPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-
-
-public class LoginTest extends TestBase {
+public class LoginTest {
     @Test
-    public void verifyUserCanLoginWithCorrectCredentials(){
-        LoginPage loginPage=new LoginPage ();
-        loginPage.login ("Tester","test");
-        new DashBoardPage ().waitForPageToLoad ();
-        Assert.assertEquals (Driver.getDriver().getCurrentUrl (),
-               " http://secure.smartbearsoftware.com/samples/TestComplet11/WebOrders/default.aspx\n");
-           }
-           @Test
-        public void verifyUserIncorrectPasswordIsShownErrorMessage(){
-        LoginPage loginPage=new LoginPage ();
-        loginPage.login ("Tester","zxcvbsdf");
-        String errorMessageText=loginPage.getErrorMessageText ();
-        Assert.assertEquals (errorMessageText,"Invalid Login or Password.");
+    public void verifyUserLoginWithCorrectCredentials(){
+        WebDriverManager.chromedriver ().setup ();
+        WebDriver driver=new ChromeDriver ();
+        driver.get ("http://secure.smartbearsoftware.com/samples/testcomplete11/WebOrders/login.aspx");
+
+        driver.findElement (By.id ("ctl00_MainContent_username")).sendKeys ("Tester");
+        driver.findElement (By.id ("ctl00_MainContent_password")).sendKeys ("test");
+        driver.findElement (By.id ("ctl00_MainContent_login_button")).click ();
+        Assert.assertEquals ("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/default.aspx",
+                driver.getCurrentUrl ());
+
     }
+    @Test
+    public void verifyUserLoginWithInCorrectPasswordIsErrorMessage(){
+        WebDriverManager.chromedriver ().setup ();
+        WebDriver driver=new ChromeDriver ();
+        driver.get ("http://secure.smartbearsoftware.com/samples/testcomplete11/WebOrders/login.aspx");
+
+        driver.findElement (By.id ("ctl00_MainContent_username")).sendKeys ("Tester");
+        driver.findElement (By.id ("ctl00_MainContent_password")).sendKeys ("asdfg");
+        driver.findElement (By.id ("ctl00_MainContent_login_button")).click ();
+        //String errorMessageText=driver.findElement (By.id ("ctl00_MainContent_status")).getText ();
+       // Assert.assertEquals (errorMessageText,"invalid login or password");
+        Assert.assertEquals ("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/login.aspx",
+                driver.getCurrentUrl ());
+
+
+
+
+    }
+
+
 }
