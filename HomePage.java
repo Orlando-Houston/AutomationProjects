@@ -1,57 +1,36 @@
-package PageObjects;
+package Page;
 
-import CompleteSelPro.Base;
+import Common.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.List;
+import javax.swing.*;
+import java.awt.*;
 
 public class HomePage extends Base {
-    public By search = By.xpath ("//input[@type='search']");
+   // private String pageUrl=" http://qatest2119.na.edu/";
+   // private By userPortalLocator=By.xpath ("//*[@id='menu-item-103']/a/span");
 
-    public WebElement getSearch() {
-        return driver.findElement (search);
 
+    public By click=By.xpath ("//*[@id='menu-item-103']/a/span");
+    public WebElement getClickPortal()
+    {
+
+        return driver.findElement (click);
     }
 
-    public By productName = By.cssSelector ("h4. product-name");
-
-    public WebElement getProductName() {
-        return driver.findElement (productName);
-
-    }
-
-    @FindBy(xpath = "//button[contains(text(),'ADD TO CART')]")
-    WebElement addToCart;
-
-    public void addToCart() {
-
-        addToCart.click ();
-    }
+    public Actions sections(){
+        Actions act=new Actions (driver);
+        act.moveToElement (driver.findElement (By.xpath ("//*[@id='menu-item-103']/a/span"))).build ().perform ();
+        return act;
 
 
-    @FindBy(how = How.CSS, using = "a.increment")
-    WebElement increment;
-
-    public void increment() {
-
-        increment.click ();
-    }
-
-    public List<WebElement>selects;
-    public List<WebElement> getSelects() {
-       selects=driver.findElements (By.cssSelector ("h4.product-name")) ;
-       return selects;
-    }
-
-    public List<WebElement>addCarts;
-   public  List<WebElement>addCartLists(){
-        addCarts=driver.findElements (By.xpath ("//div[@class='product-action']/button"));
-        return addCarts;
-    }
+    }}
 
 
-}
+
 
