@@ -1,36 +1,25 @@
-package Page;
+package Common.Page;
 
-import Common.Base;
+import Common.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
-import javax.swing.*;
-import java.awt.*;
+import java.util.List;
 
-public class HomePage extends Base {
-   // private String pageUrl=" http://qatest2119.na.edu/";
-   // private By userPortalLocator=By.xpath ("//*[@id='menu-item-103']/a/span");
+public class HomePage {
+    private By stockLocator = By.id("stockNumber");
 
-
-    public By click=By.xpath ("//*[@id='menu-item-103']/a/span");
-    public WebElement getClickPortal()
-    {
-
-        return driver.findElement (click);
+    public int getNumberOfCarsOnPage() {
+        List<WebElement> stockElementList = Driver.getDriver().findElements(stockLocator);
+        int count = stockElementList.size();
+        return count;
     }
 
-    public Actions sections(){
-        Actions act=new Actions (driver);
-        act.moveToElement (driver.findElement (By.xpath ("//*[@id='menu-item-103']/a/span"))).build ().perform ();
-        return act;
-
-
-    }}
-
-
-
-
+    public void goToPage() {
+        Driver.getDriver().get("http://dealerlot.tk/");
+    }
+    public void deleteCar(int stockNumber) {
+        By deleteButton = By.xpath("//a[@href='/delete/" + stockNumber + "']");
+        Driver.getDriver().findElement(deleteButton).click();
+    }
+}

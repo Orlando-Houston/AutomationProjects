@@ -29,7 +29,5 @@ public class DbUtil {
         return 0;
 
     }
-    public boolean doesStockExistInDb(int stockNumber){
-        return true;
-    }
+
 }
