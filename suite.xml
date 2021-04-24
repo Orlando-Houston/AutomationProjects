@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Test Cases">
+    <test name="Base">
+        <classes>
+            <class name="Homework.AfterBeforeSiut.Parent"></class>
+        </classes>
+    </test>
+
+
+    <test name="A">
+        <classes>
+            <class name="Homework.AfterBeforeSiut.A"></class>
+        </classes>
+
+    </test>
+    <test name="B">
+        <classes>
+            <class name="Homework.AfterBeforeSiut.B"></class>
+        </classes>
+
+    </test>
+
+
+
+
+</suite>

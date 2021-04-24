@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="My Grouping Testing">
+    <test name="Set1">
+        <groups>
+            <run>
+                <include name="smoke test"></include>
+
+            </run>
+
+        </groups>
+        <classes>
+            <class name="Group.GroupingTesting"></class>
+
+
+        </classes>
+    </test>
+</suite>

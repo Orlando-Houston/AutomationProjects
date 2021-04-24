@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Test Cases">
+    <test name="Credit">
+
+        <classes>
+            <class name="DependOnSunday.Credit"></class>
+
+        </classes>
+    </test>
+</suite>

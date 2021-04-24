@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="parameter">
+    <parameter name="url" value="http://www.google.com"></parameter>
+
+    <test name="DataFactoryParam">
+        <classes>
+            <class name="DataDrivingTest.GoogleDataFactry"/>
+        </classes>
+    </test>
+</suite>
+
+
+
+

@@ -1,0 +1,15 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="My After Before Test">
+    <test name="Step4">
+        <classes>
+            <class name="AfterBeforeSabAlt.TestAnnotation">
+                <methods>
+                    <include name="testCheck"></include>
+                    <include name="testCheck1"> </include>
+                    <include name="testCheck2"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

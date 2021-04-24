@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Test Cases">
+    <test name="Base">
+<classes>
+    <class name="AfterBefore.Login"></class>
+</classes>
+    </test>
+
+
+    <test name="Credit">
+        <classes>
+            <class name="AfterBefore.Credit"></class>
+        </classes>
+
+    </test>
+    <test name="Loan">
+        <classes>
+            <class name="AfterBefore.Loan"></class>
+        </classes>
+
+    </test>
+    <test name="Payment">
+        <classes>
+            <class name="AfterBefore.Payment"></class>
+        </classes>
+
+    </test>
+
+
+
+</suite>

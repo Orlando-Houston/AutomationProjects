@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MY suit check">
+    <test name="set5">
+        <classes>
+            <class name="AfterBeforeSabAlt.SuiteAnnotation">
+                <methods>
+                    <include name="annotation check"></include>
+                    <include name="annotation check1"></include>
+                    <include name="annotation check2"></include>
+                </methods>
+
+            </class>
+
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Annotation">
+    <test name="step allNatotation">
+        <classes>
+            <class name="AfterBeforeSabAlt.AllAnnotations">
+
+            </class>
+        </classes>
+    </test>
+</suite>

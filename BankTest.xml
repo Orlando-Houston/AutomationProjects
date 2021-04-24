@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Test Cases">
+    <test name="Full Execution Order">
+        <classes>
+
+            <class name="Bank.Credit">
+                <methods>
+                    <include name="credit1"></include>
+                    <include name="credit3"></include>
+                </methods>
+            </class>
+
+            <class name="Bank.Loan">
+                <methods>
+                    <include name="loan1"></include>
+                </methods>
+
+            </class>
+
+            <class name="Bank.Login">
+                <methods>
+                    <include name="login2"></include>
+                </methods>
+
+            </class>
+
+
+            <class name="Bank.Payment">
+                <methods>
+                    <include name="payment3"></include>
+                </methods>
+
+            </class>
+
+        </classes>
+    </test>
+</suite>

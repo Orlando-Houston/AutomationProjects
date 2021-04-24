@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Bank">
+    <test name="All Bank smoke test">
+        <groups>
+            <run>
+                <include name="smoke test"></include>
+                
+            </run>
+        </groups>
+        <classes>
+            <class name="Bank1.Payment">
+
+            </class>
+            <class name="Bank1.Login">
+
+            </class>
+            <class name="Bank1.Loan">
+
+            </class>
+            <class name="Bank1.Credit"></class>
+
+
+        </classes>
+    </test>
+</suite>
