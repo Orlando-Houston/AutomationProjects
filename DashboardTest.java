@@ -1,41 +1,37 @@
-package WebOrderTests;
+package DashboardTest;
 
-import WebOrderCommonDrive.Common.TestBase;
-import WebOrdersPage.DashBoard.DashBoardPage;
-import WebOrdersPage.Login.LoginPage;
+import Common.TestBase;
+import Page.DashboardPage;
+import Page.LoginPageC;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class DashboardTest extends TestBase {
-    @Test
-    public void verifyUserNameDashboardMatches(){
-        new LoginPage ().login ("Tester","test");
-        String userNameOnDashboard=new DashBoardPage().getUserNameFromDashboard ();
-        Assert.assertTrue (userNameOnDashboard.contains("Tester"));
-
+    public  void verifyUsersNameOnDashboardMatches(){
+        new LoginPageC ().login ("Tester","test");
+        String usersNameOnDashboard=new DashboardPage ().getUserNameFromDashboard ();
+        Assert.assertTrue (usersNameOnDashboard.contains ("Tester"));
     }
-
     @Test
     public void verifyUserCanLogout(){
-        LoginPage loginPage=new LoginPage ();
-        loginPage.login ("Tester","test");
-        new DashBoardPage ().logout ();
-        boolean isLoginButtonDisplayed=new LoginPage ().isLoginButtonDisplayed ();
+        LoginPageC loginPageC=new LoginPageC ();
+        loginPageC.login ("Tester","test");
+        new DashboardPage ().logout ();
+        boolean isLoginButtonDisplayed=loginPageC.isLoginButtonDisplayed ();
         Assert.assertTrue (isLoginButtonDisplayed);
-
     }
     @Test
     public void verifyDeleteRowFunctionality() throws InterruptedException {
-        new LoginPage ().login ("Tester","tester");
-        DashBoardPage dashBoardPage=new DashBoardPage ();
-        int initialNumberOfRows=dashBoardPage.getNumberOfRowsTable ();
-        dashBoardPage.checkFirstCheckbox ();
-        dashBoardPage.clickDeleteButton ();
-        int finalNumberOfRows=dashBoardPage.getNumberOfRowsTable ();
+        new LoginPageC ().login ("Tester","test");
+        DashboardPage dashboardPage=new DashboardPage ();
+        int initialNumberOfRows=dashboardPage.getNumberOfRowsOnTable ();
+        // dashboardPage.checkFirstCheckBox ();
+      //  dashboardPage.clickDeleteButton ();  or
+        dashboardPage.deleteFirstRowTable (); //single method
+        int finalNumberOfRows=dashboardPage.getNumberOfRowsOnTable ();
         Thread.sleep (2000);
+        Assert.assertEquals (finalNumberOfRows,initialNumberOfRows-1);
         System.out.println ("Initial number of rows");
         System.out.println ("Final number of rows");
-        Assert.assertEquals (finalNumberOfRows,initialNumberOfRows-1);
     }
 }

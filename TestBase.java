@@ -1,34 +1,26 @@
 package Common;
 
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
-@Test
-public abstract class TestBase extends Base {
+public class TestBase extends Base {
     @BeforeSuite
-    public void beforeSuit()
-    {
+    public void beforeSuit(){
         Driver.setUpDriver ();
     }
-    @BeforeClass
-    public void beforeClass(){
-
-    }
-
     @BeforeMethod
     public void beforeMethod(){
         Driver.getDriver ();
 
     }
-
+    @AfterMethod
     public void afterMethod(){
         Driver.closeDriver ();
 
-    }
-    @AfterClass
-    public void afterClass(){
 
     }
-
     @AfterSuite
     public void afterSuit(){
 
