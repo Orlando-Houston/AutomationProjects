@@ -1,25 +1,28 @@
-package October20SondayAfterBefore;
+package SmokeTestSundayO20;
 
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class Credit {
-
-    @Test
-
+    @Test(groups = {"smoke test"})
     public void application(){
         System.out.println("Application submit");
     }
 
-    @Test
 
+    @Test(groups = "smoke test")
     public void  approval(){
         System.out.println("Application approved");
     }
-    @BeforeTest
+    @BeforeGroups
     public void creditCheck(){
         System.out.println("credit checked");
-    }
+
 }
+@BeforeGroups(groups = {"smoke test"})
+public void creditCheck1(){
+    System.out.println("credit check1");
+}
+}
+
+
+
