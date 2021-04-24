@@ -1,5 +1,6 @@
 package Common;
 
-public class PageBase extends Base {
-
+public abstract class PageBase extends Base
+{
+public abstract void waitForPageLoad();
 }

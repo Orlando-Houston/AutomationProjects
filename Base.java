@@ -1,7 +1,8 @@
 package Common;
 
-import Util.SeleniumUtil;
+import SeleniumUtil.SeleniumUtil;
 
-public class Base {
+public abstract class Base {
     protected SeleniumUtil seleniumUtil=new SeleniumUtil ();
+
 }
