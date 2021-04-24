@@ -1,28 +1,22 @@
-package SmokeTestSundayO20;
+package SundayTimeOutEnable;
 
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 public class Credit {
-    @Test(groups = {"smoke test"})
-    public void application(){
+    @Test(timeOut = 3000)
+    public void application() throws InterruptedException {
+        //Thread.sleep(4000);
         System.out.println("Application submit");
     }
 
 
-    @Test(groups = "smoke test")
+    @Test(dependsOnMethods = "application")
     public void  approval(){
         System.out.println("Application approved");
     }
-    @BeforeGroups
+    @Test(enabled=false)
     public void creditCheck(){
         System.out.println("credit checked");
 
+    }
 }
-@BeforeGroups(groups = {"smoke test"})
-public void creditCheck1(){
-    System.out.println("credit check1");
-}
-}
-
-
-
