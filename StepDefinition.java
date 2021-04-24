@@ -1,80 +1,74 @@
 package StepDefinition;
 
 import Common.Base;
-import Page.HomePage;
-import Page.PasswordPage;
-import Page.UsernamePage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 
-import static Common.Base.driver;
 
-public class StepDefinition {
 
-    HomePage hmp;
-    UsernamePage usernamePage;
-    PasswordPage psp;
-    @Given("^User is  navigate the web site$")
-    public void user_is_navigate_the_web_site() throws Throwable {
-        Base.getDriver ();
-        Thread.sleep(5000);
+public class StepDefinition  {
 
-        //driver.quit();
 
+    public WebDriver driver;
+
+
+    @Given("^User will navigate to the website$")
+    public void user_will_navigate_to_the_website() throws Throwable {
+        WebDriverManager.chromedriver ().setup ();
+       driver=new ChromeDriver ();
+
+       driver.get ("http://secure.smartbearsoftware.com/samples/testComplete11/WebOrders/Login.aspx ");
     }
 
-    @When("^User is clicking the portal$")
-    public void user_is_clicking_the_portal() throws Throwable {
-    // hmp.sections ().click ();
-     hmp.getClickPortal ().click ();
+    @When("^User will enter valid username and valid password$")
+    public void user_will_enter_valid_username_and_valid_password() throws Throwable {
+
+     driver.findElement (By.id ("ctl00_MainContent_username")).sendKeys ("Tester");
      Thread.sleep (1000);
+        driver.findElement (By.id ("ctl00_MainContent_password")).sendKeys ("test");
+        Thread.sleep (1000);
+    }
+
+    @Then("^User will click login$")
+    public void user_will_click_login() throws Throwable {
+        driver.findElement (By.id ("ctl00_MainContent_login_button")).click ();
 
     }
 
-    @Then("^Email page will displayed$")
-    public void email_page_will_displayed() throws Throwable {
-        System.out.println ("Email page is displayed");
+    @Then("^User should be able to login successfully$")
+    public void user_should_be_able_to_login_successfully() throws Throwable {
+        Assert.assertEquals (driver.getCurrentUrl (),"http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/default.aspx");
 
+     driver.close ();
     }
-    @When("^User will send the username$")
-    public void user_will_send_the_username() throws Throwable {
-        usernamePage.getSendUsername ().sendKeys ("akeskin@na.edu");
-
-    }
-
-    @Then("^User click the next$")
-    public void user_click_the_next() throws Throwable {
-        usernamePage.getClickNext ().click ();
-
-    }
-    @When("^user sign in send password$")
-    public void user_sign_in_send_password() throws Throwable {
-        psp.getSendPassword ().sendKeys ("Sat54140");
+    @When("^User will enter valid username and invalid password$")
+    public void user_will_enter_valid_username_and_invalid_password() throws Throwable {
+        driver.findElement (By.id ("ctl00_MainContent_username")).sendKeys ("Tester");
+        Thread.sleep (1000);
+        driver.findElement (By.id ("ctl00_MainContent_password")).sendKeys ("asdfgh");
+        Thread.sleep (1000);
 
     }
 
-    @Then("^user clicking next password$")
-    public void user_clicking_next_password() throws Throwable {
-        psp.getClickPassw ().click ();
+    @Then("^User  click login$")
+    public void user_click_login() throws Throwable {
+        driver.findElement (By.id ("ctl00_MainContent_login_button")).click ();
 
     }
 
-    @Then("^user clicking to moodNAU$")
-    public void user_clicking_to_moodNAU() throws Throwable {
+    @Then("^User should be able to login unsuccessfully$")
+    public void user_should_be_able_to_login_unsuccessfully() throws Throwable {
+        //Assert.assertTrue (driver.findElement (By.xpath ("//*[@id='ctl00_MainContent_status']")).isDisplayed ());
+         String errorMessageText=driver.findElement (By.xpath ("//*[@id='ctl00_MainContent_status']")).getText ();
+        Assert.assertEquals (errorMessageText,"invalid login or password");
 
     }
-
-    @Then("^user see Dashboard$")
-    public void user_see_Dashboard() throws Throwable {
-
-    }
-
 
 
 

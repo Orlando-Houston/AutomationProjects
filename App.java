@@ -1,4 +1,4 @@
-package NauEmailCucumber;
+package WebOrdersCucumber;
 
 /**
  * Hello world!
