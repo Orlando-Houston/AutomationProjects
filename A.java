@@ -1,20 +1,26 @@
-package Homework.AfterBeforeSiut;
+package ParallelTest;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class A extends Parent {
+public class A {
+     @BeforeMethod
+    public  void  a1(){
+        System.out.println ("A1");
+    }
+    @AfterMethod
+    public  void  a2(){
+        System.out.println ("A2");
+    }
     @Test
-    public void one(){
+    public  void  a3(){
+        System.out.println ("A3");
+    }
+    @Test
+    public  void  a4(){
+        System.out.println ("A4");
+    }
 
-        System.out.println("test 1");
-    }
-    @Test
-    public void two(){
-        System.out.println("Test2");
-}
-@Test
-    public void three() {
-        System.out.println("Test3");
-    }
 
 }
