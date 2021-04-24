@@ -1,19 +1,16 @@
-package Bank1;
+package October20SondayAfterBefore;
 
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Loan {
-    @Test
-    void  loan1(){
-        System.out.println("loan1");
+    @BeforeTest
+    public void loanList(){
+        System.out.println("Loans listed");
     }
     @Test
-    void loan2(){
-        System.out.println("loan2");
-    }
-    @Test(groups = {"smoke test"})
-    void loan3 (){
-        System.out.println(" smoke test loan3");
+    public void loanAmount (){
+        System.out.println("Loan Calculated");
 
     }
 }

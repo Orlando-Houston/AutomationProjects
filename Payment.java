@@ -1,18 +1,21 @@
-package Bank1;
+package October20SondayAfterBefore;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Payment {
-    @Test
-    void payment1(){
-        System.out.println("p1");
+    @BeforeMethod
+    public void data(){
+
+        System.out.println("test data prepared");
+    }
+    @AfterMethod
+    public void paid(){
+        System.out.println("1st payment paid");
     }
     @Test
-    void payment2(){
-        System.out.println("p2");
-    }
-    @Test(groups = {"smoke test"})
-    void payment3(){
-        System.out.println(" smoke test p3");
+    public void invoice(){
+        System.out.println("invoice sent");
     }
 }

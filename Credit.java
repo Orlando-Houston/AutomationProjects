@@ -1,28 +1,25 @@
-package DependOnSunday;
+package October20SondayAfterBefore;
 
-import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Credit {
-    @Test(dependsOnMethods ={ "creditCheck"})
-    public void application()
-    {
+
+    @Test
+
+    public void application(){
         System.out.println("Application submit");
     }
 
+    @Test
 
-    @Test(dependsOnMethods = {"application"})
     public void  approval(){
         System.out.println("Application approved");
     }
-    @Test
+    @BeforeTest
     public void creditCheck(){
         System.out.println("credit checked");
-
     }
 }
-
-
-
-
-
