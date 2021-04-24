@@ -7,29 +7,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Driver {
     public static WebDriver driver;
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(){
 
-        if (driver == null) {
+        if (driver==null){
             WebDriverManager.chromedriver ().setup ();
-            driver = new ChromeDriver ();
+            driver=new ChromeDriver ();
             return driver;
         }
-        return driver;
-    }
-
-    public static void setUpDriver() {
-        if (driver == null) {
-
-            WebDriverManager.chromedriver ().setup ();
-            driver = new ChromeDriver ();
+        else{
+            return driver;
         }
-    }
-
-    public static void closeDriver() {
-        if (driver != null) {
-            driver.quit ();
-            driver = null;
-        }
-
     }
 }

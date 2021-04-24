@@ -5,24 +5,22 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-public class TestBase extends Base {
+public abstract class TestBase extends Base {
     @BeforeSuite
     public void beforeSuit(){
-        Driver.setUpDriver ();
+
     }
     @BeforeMethod
     public void beforeMethod(){
-        Driver.getDriver ();
 
     }
     @AfterMethod
     public void afterMethod(){
-        Driver.closeDriver ();
-
 
     }
     @AfterSuite
     public void afterSuit(){
 
     }
+
 }
