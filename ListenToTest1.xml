@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <listeners>
+        <listener class-name="SaturdayOctober26TestListener.ListenTo"></listener>
+
+    </listeners>
+    <test name="testsettest">
+        <classes>
+            <class name="SaturdayOctober26TestListener.ListenToTest"></class>
+            <class name="SaturdayOctober26TestListener.ListenerToTest2"></class>
+        </classes>
+    </test>
+
+
+
+</suite>

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <listeners>
+        <listener class-name="SaturdayOctober26TestListener.GoogleListener"></listener>
+
+    </listeners>
+    <test name="testsettest">
+        <classes>
+            <class name="SaturdayOctober26TestListener.GoogleDataProvider"></class>
+
+
+        </classes>
+    </test>
+
+</suite>
