@@ -1,23 +1,26 @@
-package SmokeTestSundayO20;
+package ParametrilizationSunday;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
 
 public class Login {
 
- @BeforeGroups
 
-    public void login(){
-
+    @Parameters({"url","username","password"})
+    @Test
+    public void login(String url,String username,String password)
+    {
+        System.out.println(url);
+        System.out.println(username);
+        System.out.println(password);
         System.out.println("Logged in");
     }
 
-
-    @AfterSuite
-    public void  logout() {
+    @Test
+    public void logout()
+    {
         System.out.println("Logged out");
-    }
-}
+    }}
 
 

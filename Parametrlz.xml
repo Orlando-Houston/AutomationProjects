@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Test Cases">
+    <!-- <test name="Base">
+
+         <classes>
+             <class name="Login"></class>
+         </classes>
+     </test> -->
+    <parameter name="url" value="http://www.myapplication.com"></parameter>
+    <parameter name="username" value="user1"></parameter>
+    <parameter name="password" value="pwd1"></parameter>
+    <parameter name="pr7" value="value7"></parameter>
+    <parameter name="pr8" value="value8"></parameter>
+    <parameter name="pr9" value="value9"></parameter>
+    <parameter name="pr10" value="value10"></parameter>
+    <parameter name="pr11" value="value11"></parameter>
+    <parameter name="pr4" value="value4"></parameter>
+    <parameter name="pr5" value="value5"></parameter>
+    <parameter name="pr6" value="value6"></parameter>
+
+    <test   name="Login">
+
+        <classes>
+            <class name="ParametrilizationSunday.Login"></class>
+        </classes>
+    </test>
+
+
+    <test name="Loan">
+
+        <classes>
+
+        </classes>
+    </test>
+
+</suite>
